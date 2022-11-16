@@ -58,60 +58,27 @@
 # Создать новый список, содержащий те же цены, но отсортированные по убыванию.
 # Вывести цены пяти самых дорогих товаров. Сможете ли вывести цены этих товаров по возрастанию, написав минимум кода?
 
-# list = [57.8, 46.51, 97, 66, 19.48, 83, 33.11, 55, 7.77, 49]
-
-# store_id = id(list)
-# print(f"{'a':-^79}")
-# end_word: str = ", "
-
-# for i, num in enumerate(list):
-
-#     fix_price = str(f"{float(num):.2f}").split(".")
-
-#     if i == len(list) - 1:
-#         end_word = "\n"
-
-#     print(f"{fix_price[0]} руб {fix_price[1]} коп", end=end_word)
-
-
-# print(f"{'b':-^79}")
-# print(f"id перед сортировкой {store_id}")
-# list.sort()
-# print(list)
-# print(f"id после сортировки {id(list)}")
-
-# print(f"{'c':-^79}")
-
-# copy_of_list = list.copy()
-# copy_of_list.sort(reverse=True)
-
-# print(copy_of_list)
-# print(store_id)
-# print(id(copy_of_list))
-
-
-# print(f"{'d':-^79}")
-# print("Цены пяти самых дорогих товаров", list[-6:-1])
-
-
 list1 = [57.8, 46.51, 97, 66, 19.48, 83, 33.11, 55, 7.77, 49]
 
 print()
-end_word: str = ", "
 
-for i, num in enumerate(list1):
+def prices(some_list):
+    end_word: str = ", "
+    for i, num in enumerate(some_list):
 
-    fix_price = str(f"{float(num):.2f}").split(".")
+        fix_price = str(f"{float(num):.2f}").split(".")
 
-    if i == len(list1) - 1:
-        end_word = "\n"
+        if i == len(some_list) - 1:
+            end_word = "\n"
 
-    print(f"{fix_price[0]} руб {fix_price[1]} коп", end=end_word)
+        print(f"{fix_price[0]} руб {fix_price[1]} коп", end=end_word)
 
+prices(list1)
 print()
 print(f"id перед сортировкой: {id(list1)}")
 list1.sort()
-print(f'По возрастанию: {list1}')
+print(f'По возрастанию:', end=' ')
+prices(list1)
 print(f"id после сортировки: {id(list1)}")
 
 print()
@@ -119,10 +86,12 @@ print()
 list1_copy = list1.copy()
 list1_copy.sort(reverse=True)
 
-print(f'По убыванию (копия списка): {list1_copy}')
+print(f'По убыванию (копия списка):', end=' ')
+prices(list1_copy)
 print(f'id списка: {id(list1)}')
 print(f'id копии списка: {id(list1_copy)}')
 
 
 print()
-print("Цены пяти самых дорогих товаров", list1[-6:-1])
+print('Цены пяти самых дорогих товаров', end=' ')
+prices(list1[-5:])
